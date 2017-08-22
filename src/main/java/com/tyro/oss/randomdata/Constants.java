@@ -19,12 +19,9 @@
  */
 package com.tyro.oss.randomdata;
 
-import static com.tyro.oss.randomdata.Constants.RANDOM;
+import java.util.Random;
 
-public class RandomBoolean {
+public final class Constants {
 
-    public static boolean randomBoolean() {
-        return RANDOM.nextBoolean();
-    }
-
+    public static final Random RANDOM = new Random();
 }

@@ -19,14 +19,10 @@
  */
 package com.tyro.oss.randomdata;
 
+import static com.tyro.oss.randomdata.Constants.RANDOM;
 import static java.lang.Math.abs;
-import static java.lang.System.currentTimeMillis;
-
-import java.util.Random;
 
 public class RandomInteger {
-
-    private static final Random RANDOM = new Random(currentTimeMillis());
 
     public static int randomInteger() {
         return RANDOM.nextInt();

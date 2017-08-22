@@ -19,15 +19,13 @@
  */
 package com.tyro.oss.randomdata;
 
-import static java.lang.System.currentTimeMillis;
+import static com.tyro.oss.randomdata.Constants.RANDOM;
 import static java.util.stream.Collectors.joining;
 
-import java.util.Random;
 import java.util.function.IntPredicate;
 
 public class RandomString {
 
-    private static final Random RANDOM = new Random(currentTimeMillis());
     private static final int LENGTH = 20;
 
     public static String randomString() {
