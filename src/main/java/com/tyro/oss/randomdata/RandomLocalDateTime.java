@@ -31,11 +31,11 @@ import java.time.LocalTime;
 
 public class RandomLocalDateTime {
 
-    public static LocalDateTime randomDateTime() {
+    public static LocalDateTime randomLocalDateTime() {
         return of(randomLocalDate(), randomLocalTime());
     }
 
-    public static LocalDateTime randomDateTimeBetween(LocalDateTime start, LocalDateTime end) {
+    public static LocalDateTime randomLocalDateTimeBetween(LocalDateTime start, LocalDateTime end) {
         LocalDate randomLocalDate = randomLocalDateBetween(start.toLocalDate(), end.toLocalDate());
         LocalTime randomLocalTime = randomLocalTimeBetween(start.toLocalTime(), end.toLocalTime());
         return of(randomLocalDate, randomLocalTime);
