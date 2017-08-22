@@ -22,6 +22,9 @@ package com.tyro.oss.randomdata;
 import static com.tyro.oss.randomdata.RandomString.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.UUID;
+
+import org.assertj.core.api.Condition;
 import org.junit.Test;
 
 public class RandomStringTest {
@@ -74,5 +77,21 @@ public class RandomStringTest {
     @Test
     public void shouldReturnRandomAlphanumericStringAndLengthOf255() throws Exception {
         assertThat(randomAlphanumericString(255)).containsPattern("[A-Za-z0-9]{255}");
+    }
+
+    @Test
+    public void shouldReturnRandomUUIDString() throws Exception {
+        assertThat(randomUUID()).is(uuid());
+    }
+
+    private Condition<String> uuid() {
+        return new Condition<>(s -> {
+            try {
+                UUID.fromString(s);
+            } catch (Exception e) {
+                return false;
+            }
+            return true;
+        }, "UUID");
     }
 }

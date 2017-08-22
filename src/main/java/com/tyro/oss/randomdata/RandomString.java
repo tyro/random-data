@@ -22,6 +22,7 @@ package com.tyro.oss.randomdata;
 import static com.tyro.oss.randomdata.Constants.RANDOM;
 import static java.util.stream.Collectors.joining;
 
+import java.util.UUID;
 import java.util.function.IntPredicate;
 
 public class RandomString {
@@ -71,6 +72,10 @@ public class RandomString {
         IntPredicate isDigit = Character::isDigit;
 
         return random(length, '0', 'z', isAlphabetic.or(isDigit));
+    }
+
+    public static String randomUUID() {
+        return UUID.randomUUID().toString();
     }
 
     private static String toCharacter(int integer) {
