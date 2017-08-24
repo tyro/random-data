@@ -19,14 +19,16 @@
  */
 package com.tyro.oss.randomdata;
 
-import static com.tyro.oss.randomdata.RandomString.*;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Condition;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.UUID;
 
-import org.assertj.core.api.Condition;
-import org.junit.Test;
+import static com.tyro.oss.randomdata.RandomString.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(RepeatRunner.class)
 public class RandomStringTest {
 
     @Test

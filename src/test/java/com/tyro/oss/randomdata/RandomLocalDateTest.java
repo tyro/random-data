@@ -19,13 +19,15 @@
  */
 package com.tyro.oss.randomdata;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import static com.tyro.oss.randomdata.RandomLocalDate.randomLocalDate;
 import static com.tyro.oss.randomdata.RandomLocalDate.randomLocalDateBetween;
 import static java.time.LocalDate.of;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-
+@RunWith(RepeatRunner.class)
 public class RandomLocalDateTest {
 
     @Test

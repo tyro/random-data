@@ -19,13 +19,15 @@
  */
 package com.tyro.oss.randomdata;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import static com.tyro.oss.randomdata.RandomBoolean.randomBoolean;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-
+@RunWith(RepeatRunner.class)
 public class RandomBooleanTest {
 
     @Test

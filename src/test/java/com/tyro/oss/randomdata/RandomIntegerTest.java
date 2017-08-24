@@ -19,12 +19,14 @@
  */
 package com.tyro.oss.randomdata;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import static com.tyro.oss.randomdata.RandomInteger.*;
 import static java.lang.Integer.MAX_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-
+@RunWith(RepeatRunner.class)
 public class RandomIntegerTest {
 
     @Test

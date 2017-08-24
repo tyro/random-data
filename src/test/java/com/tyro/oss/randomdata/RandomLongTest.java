@@ -19,11 +19,13 @@
  */
 package com.tyro.oss.randomdata;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import static com.tyro.oss.randomdata.RandomLong.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-
+@RunWith(RepeatRunner.class)
 public class RandomLongTest {
 
     @Test
