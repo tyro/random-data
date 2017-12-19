@@ -24,7 +24,9 @@ import org.junit.runner.RunWith;
 
 import static com.tyro.oss.randomdata.RandomInteger.*;
 import static java.lang.Integer.MAX_VALUE;
+import static java.lang.Integer.MIN_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 @RunWith(RepeatRunner.class)
 public class RandomIntegerTest {
@@ -44,5 +46,13 @@ public class RandomIntegerTest {
         assertThat(randomIntegerBetween(10, 100)).isBetween(10, 100);
         assertThat(randomIntegerBetween(-100, -10)).isBetween(-100, -10);
         assertThat(randomIntegerBetween(-10, 10)).isBetween(-10, 10);
+        assertThat(randomIntegerBetween(MIN_VALUE, MIN_VALUE + 1)).isBetween(MIN_VALUE, MIN_VALUE + 1);
+    }
+
+    @Test
+    public void shouldThrowArithmeticExceptionWhenUpperBoundIsIntegerMaxValue() throws Exception {
+        assertThatCode(() -> randomIntegerBetween(0, MAX_VALUE))
+                .isInstanceOf(ArithmeticException.class)
+                .hasMessage("integer overflow");
     }
 }

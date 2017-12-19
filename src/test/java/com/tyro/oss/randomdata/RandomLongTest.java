@@ -23,7 +23,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static com.tyro.oss.randomdata.RandomLong.*;
+import static java.lang.Long.MAX_VALUE;
+import static java.lang.Long.MIN_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 @RunWith(RepeatRunner.class)
 public class RandomLongTest {
@@ -38,10 +41,18 @@ public class RandomLongTest {
         assertThat(randomLongBetween(10L, 100L)).isBetween(10L, 100L);
         assertThat(randomLongBetween(-100L, -10L)).isBetween(-100L, -10L);
         assertThat(randomLongBetween(-10L, 10L)).isBetween(-10L, 10L);
+        assertThat(randomLongBetween(MIN_VALUE, MIN_VALUE + 1)).isBetween(MIN_VALUE, MIN_VALUE + 1);
     }
 
     @Test
     public void shouldReturnRandomPositiveLong() throws Exception {
         assertThat(randomPositiveLong()).isPositive();
+    }
+
+    @Test
+    public void shouldThrowArithmeticExceptionWhenUpperBoundIsIntegerMaxValue() throws Exception {
+        assertThatCode(() -> randomLongBetween(0, MAX_VALUE))
+                .isInstanceOf(ArithmeticException.class)
+                .hasMessage("long overflow");
     }
 }

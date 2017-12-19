@@ -21,6 +21,7 @@ package com.tyro.oss.randomdata;
 
 import static com.tyro.oss.randomdata.Constants.RANDOM;
 import static java.lang.Math.abs;
+import static java.lang.Math.addExact;
 
 public class RandomInteger {
 
@@ -33,7 +34,7 @@ public class RandomInteger {
     }
 
     public static int randomIntegerBetween(int startInclusive, int endInclusive) {
-        return RANDOM.ints(startInclusive, endInclusive + 1)
+        return RANDOM.ints(startInclusive, addExact(endInclusive, 1))
                 .findFirst()
                 .getAsInt();
     }
