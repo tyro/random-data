@@ -19,25 +19,23 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomLocalDate.randomLocalDate;
 import static com.tyro.oss.randomdata.RandomLocalDate.randomLocalDateBetween;
 import static java.time.LocalDate.of;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomLocalDateTest {
+class RandomLocalDateTest {
 
     @Test
-    public void shouldReturnRandomLocalDateBetween19700101To20301231() throws Exception {
+    void shouldReturnRandomLocalDateBetween19700101To20301231() {
         assertThat(randomLocalDate())
                 .isBetween(of(1970, 1, 1), of(2030, 12, 31));
     }
 
     @Test
-    public void shouldReturnRandomLocalDateBetween() throws Exception {
+    void shouldReturnRandomLocalDateBetween() {
         assertThat(randomLocalDateBetween(of(2000, 1, 1), of(2000, 12, 31)))
                 .isBetween(of(2000, 1, 1), of(2000, 12, 31));
     }

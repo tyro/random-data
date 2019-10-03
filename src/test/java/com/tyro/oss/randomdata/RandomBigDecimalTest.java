@@ -19,31 +19,29 @@
  */
 package com.tyro.oss.randomdata;
 
-import static com.tyro.oss.randomdata.RandomBigDecimal.*;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static com.tyro.oss.randomdata.RandomBigDecimal.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomBigDecimalTest {
+class RandomBigDecimalTest {
 
     @Test
-    public void shouldReturnRandomBigDecimal() throws Exception {
+    void shouldReturnRandomBigDecimal() {
         assertThat(randomBigDecimal()).isInstanceOf(BigDecimal.class);
     }
 
     @Test
-    public void shouldReturnRandomBigDecimalInclusive() throws Exception {
+    void shouldReturnRandomBigDecimalInclusive() {
         assertThat(randomBigDecimalBetween(new BigDecimal(10.0), new BigDecimal(100.0))).isBetween(new BigDecimal(10.0), new BigDecimal(100.0));
         assertThat(randomBigDecimalBetween(new BigDecimal(-100.0), new BigDecimal(-10.0))).isBetween(new BigDecimal(-100.0), new BigDecimal(-10.0));
         assertThat(randomBigDecimalBetween(new BigDecimal(-10.0), new BigDecimal(10.0))).isBetween(new BigDecimal(-10.0), new BigDecimal(10.0));
     }
 
     @Test
-    public void shouldReturnRandomPositivBigDecimal() throws Exception {
+    void shouldReturnRandomPositiveBigDecimal() {
         assertThat(randomPositiveBigDecimal()).isPositive();
     }
 }

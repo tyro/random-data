@@ -19,19 +19,17 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomBoolean.randomBoolean;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomBooleanTest {
+class RandomBooleanTest {
 
     @Test
-    public void shouldReturnRandomBoolean() throws Exception {
+    void shouldReturnRandomBoolean() {
         assertThat(randomBoolean()).isIn(TRUE, FALSE);
     }
 }

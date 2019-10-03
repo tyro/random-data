@@ -19,29 +19,28 @@
  */
 package com.tyro.oss.randomdata;
 
+import org.junit.jupiter.api.Test;
+
 import static com.tyro.oss.randomdata.RandomDouble.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(RepeatRunner.class)
-public class RandomDoubleTest {
+class RandomDoubleTest {
 
     @Test
-    public void shouldReturnRandomDouble() throws Exception {
+    void shouldReturnRandomDouble() {
         assertThat(randomDouble()).isInstanceOf(Double.class);
     }
 
     @Test
-    public void shouldReturnRandomDoubleInclusive() throws Exception {
+    void shouldReturnRandomDoubleInclusive() {
         assertThat(randomDoubleBetween(10.0, 100.0)).isBetween(10.0, 100.0);
         assertThat(randomDoubleBetween(-100.0, -10.0)).isBetween(-100.0, -10.0);
         assertThat(randomDoubleBetween(-10.0, 10.0)).isBetween(-10.0, 10.0);
     }
 
     @Test
-    public void shouldReturnRandomPositiveDouble() throws Exception {
+    void shouldReturnRandomPositiveDouble() {
         assertThat(randomPositiveDouble()).isPositive();
     }
 }
