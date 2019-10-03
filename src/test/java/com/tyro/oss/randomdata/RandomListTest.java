@@ -19,23 +19,21 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomList.randomList;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomListTest {
+class RandomListTest {
 
     @Test
-    public void shouldReturnRandomListOfString() throws Exception {
+    void shouldReturnRandomListOfString() {
         assertThat(randomList(RandomString::randomString))
                 .hasOnlyElementsOfTypes(String.class);
     }
 
     @Test
-    public void shouldReturnRandomListOfStringWithSizeOf255() throws Exception {
+    void shouldReturnRandomListOfStringWithSizeOf255() {
         assertThat(randomList(RandomString::randomString, 255))
                 .hasSize(255)
                 .hasOnlyElementsOfTypes(String.class);

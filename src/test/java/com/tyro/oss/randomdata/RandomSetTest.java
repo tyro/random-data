@@ -19,23 +19,21 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomSet.randomSet;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomSetTest {
+class RandomSetTest {
 
     @Test
-    public void shouldReturnRandomSetOfString() throws Exception {
+    void shouldReturnRandomSetOfString() {
         assertThat(randomSet(RandomString::randomString))
                 .hasOnlyElementsOfTypes(String.class);
     }
 
     @Test
-    public void shouldReturnRandomSetOfStringWithSizeOf255() throws Exception {
+    void shouldReturnRandomSetOfStringWithSizeOf255() {
         assertThat(randomSet(RandomString::randomString, 255))
                 .hasSize(255)
                 .hasOnlyElementsOfTypes(String.class);

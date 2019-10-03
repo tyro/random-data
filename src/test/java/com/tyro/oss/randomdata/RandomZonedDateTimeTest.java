@@ -19,26 +19,24 @@
  */
 package com.tyro.oss.randomdata;
 
+import org.junit.jupiter.api.Test;
+
 import static com.tyro.oss.randomdata.RandomZonedDateTime.randomZonedDateTime;
 import static com.tyro.oss.randomdata.RandomZonedDateTime.randomZonedDateTimeBetween;
 import static java.time.ZoneId.systemDefault;
 import static java.time.ZonedDateTime.of;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-@RunWith(RepeatRunner.class)
-public class RandomZonedDateTimeTest {
+class RandomZonedDateTimeTest {
 
     @Test
-    public void shouldReturnRandomZonedDateTimeBetween19700101To20301231() throws Exception {
+    void shouldReturnRandomZonedDateTimeBetween19700101To20301231() {
         assertThat(randomZonedDateTime())
                 .isBetween(of(1970, 1, 1, 0, 0, 0, 0, systemDefault()), of(2030, 12, 31, 23, 59, 0, 0, systemDefault()));
     }
 
     @Test
-    public void shouldReturnRandomZonedDateTimeBetween() throws Exception {
+    void shouldReturnRandomZonedDateTimeBetween() {
         assertThat(randomZonedDateTimeBetween(of(2000, 1, 1, 0, 0, 0, 0, systemDefault()), of(2000, 12, 31, 23, 59, 0, 0, systemDefault())))
                 .isBetween(of(2000, 1, 1, 0, 0, 0, 0, systemDefault()), of(2000, 12, 31, 23, 59, 0, 0, systemDefault()));
     }

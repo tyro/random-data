@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,45 +19,45 @@ import java.util.Set;
 import static com.tyro.oss.randomdata.RandomInstance.random;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RandomInstanceTest {
+class RandomInstanceTest {
 
     @Test
-    public void shouldReturnRandomInstanceWithStringArgs() {
+    void shouldReturnRandomInstanceWithStringArgs() {
         assertThat(random(StringTestObject.class))
                 .isInstanceOf(StringTestObject.class)
                 .hasNoNullFieldsOrProperties();
     }
 
     @Test
-    public void shouldReturnRandomInstanceWithNumericArgs() {
+    void shouldReturnRandomInstanceWithNumericArgs() {
         assertThat(random(NumericTestObject.class))
                 .isInstanceOf(NumericTestObject.class)
                 .hasNoNullFieldsOrProperties();
     }
 
     @Test
-    public void shouldReturnRandomInstanceWithDataAndTimeArgs() {
+    void shouldReturnRandomInstanceWithDataAndTimeArgs() {
         assertThat(random(DateAndTimeTestObject.class))
                 .isInstanceOf(DateAndTimeTestObject.class)
                 .hasNoNullFieldsOrProperties();
     }
 
     @Test
-    public void shouldReturnRandomInstanceWithCollectionArgs() {
+    void shouldReturnRandomInstanceWithCollectionArgs() {
         assertThat(random(CollectionTestObject.class))
                 .isInstanceOf(CollectionTestObject.class)
                 .hasNoNullFieldsOrProperties();
     }
 
     @Test
-    public void shouldReturnRandomInstanceWithEnumArgs() {
+    void shouldReturnRandomInstanceWithEnumArgs() {
         assertThat(random(EnumTestObject.class))
                 .isInstanceOf(EnumTestObject.class)
                 .hasNoNullFieldsOrProperties();
     }
 
     @Test
-    public void shouldSetUnsupportedTypesToNull() {
+    void shouldSetUnsupportedTypesToNull() {
         assertThat(random(UnsupportedTestObject.class))
                 .isEqualTo(new UnsupportedTestObject(null, null, null));
     }

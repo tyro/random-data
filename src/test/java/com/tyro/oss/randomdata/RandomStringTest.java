@@ -20,69 +20,67 @@
 package com.tyro.oss.randomdata;
 
 import org.assertj.core.api.Condition;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
 
 import static com.tyro.oss.randomdata.RandomString.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomStringTest {
+class RandomStringTest {
 
     @Test
-    public void shouldReturnRandomString() throws Exception {
+    void shouldReturnRandomString() {
         assertThat(randomString()).containsPattern("[ -~]{20}");
     }
 
     @Test
-    public void shouldReturnRandomStringWithLengthOf255() throws Exception {
+    void shouldReturnRandomStringWithLengthOf255() {
         assertThat(randomString(255)).containsPattern("[ -~]{255}");
     }
 
     @Test
-    public void shouldReturnRandomNumericString() throws Exception {
+    void shouldReturnRandomNumericString() {
         assertThat(randomNumericString()).containsPattern("[0-9]{20}");
     }
 
     @Test
-    public void shouldReturnRandomNumericStringWithLengthOf255() throws Exception {
+    void shouldReturnRandomNumericStringWithLengthOf255() {
         assertThat(randomNumericString(255)).containsPattern("[0-9]{255}");
     }
 
     @Test
-    public void shouldReturnRandomAlphabeticString() throws Exception {
+    void shouldReturnRandomAlphabeticString() {
         assertThat(randomAlphabeticString()).containsPattern("[A-Za-z]{20}");
     }
 
     @Test
-    public void shouldReturnRandomAlphabeticStringWithLengthOf255() throws Exception {
+    void shouldReturnRandomAlphabeticStringWithLengthOf255() {
         assertThat(randomAlphabeticString(255)).containsPattern("[A-Za-z]{255}");
     }
 
     @Test
-    public void shouldReturnRandomAlphabeticStringWithSpace() throws Exception {
+    void shouldReturnRandomAlphabeticStringWithSpace() {
         assertThat(randomAlphabeticStringWithSpace()).containsPattern("[A-Za-z\\s]{20}");
     }
 
     @Test
-    public void shouldReturnRandomAlphabeticStringWithSpaceAndLengthOf255() throws Exception {
+    void shouldReturnRandomAlphabeticStringWithSpaceAndLengthOf255() {
         assertThat(randomAlphabeticStringWithSpace(255)).containsPattern("[A-Za-z\\s]{255}");
     }
 
     @Test
-    public void shouldReturnRandomAlphanumericString() throws Exception {
+    void shouldReturnRandomAlphanumericString() {
         assertThat(randomAlphanumericString()).containsPattern("[A-Za-z0-9]{20}");
     }
 
     @Test
-    public void shouldReturnRandomAlphanumericStringAndLengthOf255() throws Exception {
+    void shouldReturnRandomAlphanumericStringAndLengthOf255() {
         assertThat(randomAlphanumericString(255)).containsPattern("[A-Za-z0-9]{255}");
     }
 
     @Test
-    public void shouldReturnRandomUUIDString() throws Exception {
+    void shouldReturnRandomUUIDString() {
         assertThat(randomUUID()).is(uuid());
     }
 

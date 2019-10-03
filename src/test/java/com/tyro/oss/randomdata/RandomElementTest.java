@@ -19,8 +19,7 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -30,11 +29,10 @@ import static com.tyro.oss.randomdata.RandomString.randomString;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomElementTest {
+class RandomElementTest {
 
     @Test
-    public void shouldReturnRandomElementOfVarargs() throws Exception {
+    void shouldReturnRandomElementOfVarargs() {
         String str1 = randomString();
         String str2 = randomString();
         assertThat(randomElementOf(str1)).isEqualTo(str1);
@@ -42,7 +40,7 @@ public class RandomElementTest {
     }
 
     @Test
-    public void shouldReturnRandomElementOfCollections() throws Exception {
+    void shouldReturnRandomElementOfCollections() {
         int int1 = randomInteger();
         int int2 = randomInteger();
         List<Integer> integers = asList(int1, int2);
@@ -51,7 +49,7 @@ public class RandomElementTest {
     }
 
     @Test
-    public void shouldReturnRandomElementOfSuppliers() throws Exception {
+    void shouldReturnRandomElementOfSuppliers() {
         String str1 = randomString();
         String str2 = randomString();
 

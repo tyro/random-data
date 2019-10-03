@@ -19,25 +19,23 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomLocalTime.randomLocalTime;
 import static com.tyro.oss.randomdata.RandomLocalTime.randomLocalTimeBetween;
 import static java.time.LocalTime.of;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomLocalTimeTest {
+class RandomLocalTimeTest {
 
     @Test
-    public void shouldReturnRandomLocalTime() throws Exception {
+    void shouldReturnRandomLocalTime() {
         assertThat(randomLocalTime())
                 .isBetween(of(0, 0, 0), of(23, 59, 59));
     }
 
     @Test
-    public void shouldReturnRandomLocalTimeBetween() throws Exception {
+    void shouldReturnRandomLocalTimeBetween() {
         assertThat(randomLocalTimeBetween(of(9, 0), of(17, 0)))
                 .isBetween(of(9, 0), of(17, 0));
     }

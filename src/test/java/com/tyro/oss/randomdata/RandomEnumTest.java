@@ -19,8 +19,8 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomEnum.randomEnumValue;
 import static com.tyro.oss.randomdata.RandomEnum.randomEnumValueExcept;
@@ -28,27 +28,26 @@ import static com.tyro.oss.randomdata.RandomEnumTest.Colour.*;
 import static java.util.EnumSet.of;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RepeatRunner.class)
-public class RandomEnumTest {
+class RandomEnumTest {
 
     @Test
-    public void shouldReturnRandomEnumValueFromEnum() throws Exception {
+    void shouldReturnRandomEnumValueFromEnum() {
         assertThat(randomEnumValue(Colour.class)).isIn(Colour.values());
     }
 
     @Test
-    public void shouldReturnRandomEnumValueFromEnumSet() throws Exception {
+    void shouldReturnRandomEnumValueFromEnumSet() {
         assertThat(randomEnumValue(of(Red, Orange, Yellow, Green, Cyan, Blue))).isIn(Red, Orange, Yellow, Green, Cyan, Blue);
     }
 
     @Test
-    public void shouldNotReturnTheExcludedEnumValuesFromEnum() throws Exception {
+    void shouldNotReturnTheExcludedEnumValuesFromEnum() {
         assertThat(randomEnumValueExcept(Red)).isNotIn(Red);
         assertThat(randomEnumValueExcept(Red, Orange)).isNotIn(Red, Orange);
     }
 
     @Test
-    public void shouldNotReturnTheExcludedEnumValuesFromEnumSet() throws Exception {
+    void shouldNotReturnTheExcludedEnumValuesFromEnumSet() {
         assertThat(randomEnumValueExcept(of(Red, Orange))).isNotIn(Red, Orange);
     }
 

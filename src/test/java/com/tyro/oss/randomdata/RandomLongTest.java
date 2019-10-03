@@ -19,8 +19,7 @@
  */
 package com.tyro.oss.randomdata;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomLong.*;
 import static java.lang.Long.MAX_VALUE;
@@ -28,16 +27,15 @@ import static java.lang.Long.MIN_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
-@RunWith(RepeatRunner.class)
-public class RandomLongTest {
+class RandomLongTest {
 
     @Test
-    public void shouldReturnRandomLong() throws Exception {
+    void shouldReturnRandomLong() {
         assertThat(randomLong()).isInstanceOf(Long.class);
     }
 
     @Test
-    public void shouldReturnRandomLongInclusive() throws Exception {
+    void shouldReturnRandomLongInclusive() {
         assertThat(randomLongBetween(10L, 100L)).isBetween(10L, 100L);
         assertThat(randomLongBetween(-100L, -10L)).isBetween(-100L, -10L);
         assertThat(randomLongBetween(-10L, 10L)).isBetween(-10L, 10L);
@@ -45,12 +43,12 @@ public class RandomLongTest {
     }
 
     @Test
-    public void shouldReturnRandomPositiveLong() throws Exception {
+    void shouldReturnRandomPositiveLong() {
         assertThat(randomPositiveLong()).isPositive();
     }
 
     @Test
-    public void shouldThrowArithmeticExceptionWhenUpperBoundIsIntegerMaxValue() throws Exception {
+    void shouldThrowArithmeticExceptionWhenUpperBoundIsIntegerMaxValue() {
         assertThatCode(() -> randomLongBetween(0, MAX_VALUE))
                 .isInstanceOf(ArithmeticException.class)
                 .hasMessage("long overflow");
