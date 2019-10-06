@@ -70,6 +70,19 @@ class RandomStringTest {
     }
 
     @Test
+    void shouldReturnSpaceStringWithRandomLength() {
+        assertThat(randomSpaceString())
+                .containsOnlyWhitespaces()
+                .hasSizeGreaterThanOrEqualTo(1)
+                .hasSizeLessThanOrEqualTo(20);
+    }
+
+    @Test
+    void shouldReturnSpaceStringLengthOf100() {
+        assertThat(randomSpaceString(100)).containsPattern("\\s{100}");
+    }
+
+    @Test
     void shouldReturnRandomAlphanumericString() {
         assertThat(randomAlphanumericString()).containsPattern("[A-Za-z0-9]{20}");
     }
