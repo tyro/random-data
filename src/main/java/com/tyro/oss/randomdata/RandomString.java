@@ -19,11 +19,13 @@
  */
 package com.tyro.oss.randomdata;
 
-import static com.tyro.oss.randomdata.Constants.RANDOM;
-import static java.util.stream.Collectors.joining;
-
 import java.util.UUID;
 import java.util.function.IntPredicate;
+
+import static com.tyro.oss.randomdata.Constants.RANDOM;
+import static com.tyro.oss.randomdata.RandomInteger.randomIntegerBetween;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Stream.generate;
 
 public class RandomString {
 
@@ -72,6 +74,16 @@ public class RandomString {
         IntPredicate isDigit = Character::isDigit;
 
         return random(length, '0', 'z', isAlphabetic.or(isDigit));
+    }
+
+    public static String randomSpaceString() {
+        return randomSpaceString(randomIntegerBetween(1, 20));
+    }
+
+    public static String randomSpaceString(int length) {
+        return generate(() -> " ")
+                .limit(length)
+                .collect(joining());
     }
 
     public static String randomUUID() {
