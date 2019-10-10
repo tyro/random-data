@@ -62,7 +62,7 @@ public class RandomString {
     public static String randomAlphabeticStringWithSpace(int length) {
         IntPredicate isAlphabetic = Character::isAlphabetic;
         IntPredicate isSpace = Character::isSpaceChar;
-        return random(length, 'A', 'z', isAlphabetic.or(isSpace));
+        return random(length, ' ', 'z', isAlphabetic.or(isSpace));
     }
 
     public static String randomAlphanumericString() {
