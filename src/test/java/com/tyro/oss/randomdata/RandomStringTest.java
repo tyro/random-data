@@ -22,9 +22,12 @@ package com.tyro.oss.randomdata;
 import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.UUID;
 
 import static com.tyro.oss.randomdata.RandomString.*;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Stream.generate;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RandomStringTest {
@@ -61,7 +64,13 @@ class RandomStringTest {
 
     @Test
     void shouldReturnRandomAlphabeticStringWithSpace() {
-        assertThat(randomAlphabeticStringWithSpace()).containsPattern("[A-Za-z\\s]{20}");
+        List<String> randomAlphabeticStringWithSpaceList = generate(RandomString::randomAlphabeticStringWithSpace)
+                .limit(100)
+                .collect(toList());
+
+        assertThat(randomAlphabeticStringWithSpaceList)
+                .allMatch(s -> s.matches("[A-Za-z\\s]{20}"))
+                .anyMatch(s -> s.contains(" "));
     }
 
     @Test
