@@ -69,8 +69,7 @@ class RandomStringTest {
                 .collect(toList());
 
         assertThat(randomAlphabeticStringWithSpaceList)
-                .allMatch(s -> s.matches("[ A-Za-z]{20}"))
-                .anyMatch(s -> s.contains(" "));
+                .allMatch(s -> s.matches("[ A-Za-z]{20}"));
     }
 
     @Test
