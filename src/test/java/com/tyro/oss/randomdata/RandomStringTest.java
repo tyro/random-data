@@ -69,26 +69,23 @@ class RandomStringTest {
                 .collect(toList());
 
         assertThat(randomAlphabeticStringWithSpaceList)
-                .allMatch(s -> s.matches("[A-Za-z\\s]{20}"))
-                .anyMatch(s -> s.contains(" "));
+                .allMatch(s -> s.matches("[ A-Za-z]{20}"));
     }
 
     @Test
     void shouldReturnRandomAlphabeticStringWithSpaceAndLengthOf255() {
-        assertThat(randomAlphabeticStringWithSpace(255)).containsPattern("[A-Za-z\\s]{255}");
+        assertThat(randomAlphabeticStringWithSpace(255)).containsPattern("[ A-Za-z]{255}");
     }
 
     @Test
     void shouldReturnSpaceStringWithRandomLength() {
         assertThat(randomSpaceString())
-                .containsOnlyWhitespaces()
-                .hasSizeGreaterThanOrEqualTo(1)
-                .hasSizeLessThanOrEqualTo(20);
+                .containsPattern("^[ ]{1,20}$");
     }
 
     @Test
     void shouldReturnSpaceStringLengthOf100() {
-        assertThat(randomSpaceString(100)).containsPattern("\\s{100}");
+        assertThat(randomSpaceString(100)).containsPattern("^[ ]{100}$");
     }
 
     @Test
