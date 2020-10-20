@@ -4,9 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -29,6 +27,9 @@ public class RandomInstance {
         typeFactories.put(LocalDate.class, RandomLocalDate::randomLocalDate);
         typeFactories.put(LocalDateTime.class, RandomLocalDateTime::randomLocalDateTime);
         typeFactories.put(ZonedDateTime.class, RandomZonedDateTime::randomZonedDateTime);
+        typeFactories.put(Instant.class, RandomInstant::randomInstant);
+        typeFactories.put(ZoneOffset.class, RandomZoneOffset::randomZoneOffset);
+        typeFactories.put(YearMonth.class, RandomYearMonth::randomYearMonth);
     }
 
     private static final Map<Class, Function<Supplier<?>, ?>> parameterizedTypeFactories = new LinkedHashMap<>();
