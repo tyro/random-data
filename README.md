@@ -6,6 +6,15 @@
 
 A simple library that populates random Java objects and primitives.
 
+Support for the following types is provided:
+* Boolean, Double, Integer, Long
+* String
+* Enum
+* BigDecimal
+* LocalDate, LocalDateTime, LocalTime, Instant, YearMonth, ZonedDateTime, ZoneOffset
+* Lists and Sets of a supported type
+* Classes with constructor parameters of a supported type
+
 ## Getting Started
 
 random-data is available on Maven Central.
@@ -24,6 +33,9 @@ Example usage.
 val integer = randomInteger()
 val long = randomLongBetween(1, 100)
 val date = randomLocalDate()
+
+// generate a random instance
+val customer = random(Customer::class.java)
 
 // generate a set of random numeric strings
 val set = randomSet { randomNumericString() }
