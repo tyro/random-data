@@ -7,9 +7,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.temporal.Temporal;
 import java.util.Collection;
 import java.util.List;
@@ -95,12 +93,24 @@ class RandomInstanceTest {
         private LocalDate localDate;
         private LocalDateTime localDateTime;
         private ZonedDateTime zonedDateTime;
+        private Instant instant;
+        private ZoneOffset zoneOffset;
+        private YearMonth yearMonth;
 
-        public DateAndTimeTestObject(Temporal temporal, LocalDate localDate, LocalDateTime localDateTime, ZonedDateTime zonedDateTime) {
+        public DateAndTimeTestObject(Temporal temporal,
+                                     LocalDate localDate,
+                                     LocalDateTime localDateTime,
+                                     ZonedDateTime zonedDateTime,
+                                     Instant instant,
+                                     ZoneOffset zoneOffset,
+                                     YearMonth yearMonth) {
             this.temporal = temporal;
             this.localDate = localDate;
             this.localDateTime = localDateTime;
             this.zonedDateTime = zonedDateTime;
+            this.instant = instant;
+            this.zoneOffset = zoneOffset;
+            this.yearMonth = yearMonth;
         }
     }
 
