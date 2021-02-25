@@ -2,7 +2,7 @@
  * #%L
  * random-data
  * %%
- * Copyright (C) 2016 - 2017 Tyro Payments Pty Ltd
+ * Copyright (C) 2017 - 2021 Tyro Payments Limited
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.tyro.oss.randomdata.RandomDouble.*;
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 class RandomDoubleTest {
 

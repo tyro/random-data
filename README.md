@@ -46,7 +46,7 @@ val list = randomList({ randomString() }, 10)
 
 ## Copyright and Licensing
 
-Copyright (C) 2018 Tyro Payments Pty Ltd
+Copyright (C) 2017 - 2021 Tyro Payments Limited
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -93,6 +93,31 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>update-source-license-headers</id>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <licenseName>apache_v2</licenseName>
+                            <organizationName>Tyro Payments Limited</organizationName>
+                            <inceptionYear>2017</inceptionYear>
+                            <projectName>random-data</projectName>
+                            <canUpdateCopyright>true</canUpdateCopyright>
+                            <canUpdateDescription>true</canUpdateDescription>
+                            <canUpdateLicense>true</canUpdateLicense>
+                            <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

@@ -2,7 +2,7 @@
  * #%L
  * random-data
  * %%
- * Copyright (C) 2016 - 2017 Tyro Payments Pty Ltd
+ * Copyright (C) 2017 - 2021 Tyro Payments Limited
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,16 +19,16 @@
  */
 package com.tyro.oss.randomdata;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+
 import static com.tyro.oss.randomdata.RandomLocalDate.randomLocalDate;
 import static com.tyro.oss.randomdata.RandomLocalDate.randomLocalDateBetween;
 import static com.tyro.oss.randomdata.RandomLocalTime.randomLocalTime;
 import static com.tyro.oss.randomdata.RandomLocalTime.randomLocalTimeBetween;
 import static java.time.ZoneId.systemDefault;
 import static java.time.ZonedDateTime.of;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZonedDateTime;
 
 public class RandomZonedDateTime {
 
