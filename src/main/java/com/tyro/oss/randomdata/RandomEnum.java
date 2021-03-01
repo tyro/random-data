@@ -2,7 +2,7 @@
  * #%L
  * random-data
  * %%
- * Copyright (C) 2016 - 2017 Tyro Payments Pty Ltd
+ * Copyright (C) 2017 - 2021 Tyro Payments Limited
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,12 @@
  */
 package com.tyro.oss.randomdata;
 
+import java.util.ArrayList;
+import java.util.EnumSet;
+
 import static com.tyro.oss.randomdata.RandomInteger.randomIntegerBetween;
 import static java.util.EnumSet.complementOf;
 import static java.util.EnumSet.of;
-
-import java.util.ArrayList;
-import java.util.EnumSet;
 
 public class RandomEnum {
 
