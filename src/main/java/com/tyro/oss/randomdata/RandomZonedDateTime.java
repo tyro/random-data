@@ -21,6 +21,7 @@ package com.tyro.oss.randomdata;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 import static com.tyro.oss.randomdata.RandomLocalDate.randomLocalDate;
@@ -33,7 +34,15 @@ import static java.time.ZonedDateTime.of;
 public class RandomZonedDateTime {
 
     public static ZonedDateTime randomZonedDateTime() {
-        return of(randomLocalDate(), randomLocalTime(), systemDefault());
+        return randomZonedDateTime(systemDefault());
+    }
+
+    public static ZonedDateTime randomZonedDateTime(String zoneId) {
+        return randomZonedDateTime(ZoneId.of(zoneId));
+    }
+
+    public static ZonedDateTime randomZonedDateTime(ZoneId zoneId) {
+        return of(randomLocalDate(), randomLocalTime(), zoneId);
     }
 
     public static ZonedDateTime randomZonedDateTimeBetween(ZonedDateTime start, ZonedDateTime end) {

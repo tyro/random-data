@@ -21,6 +21,9 @@ package com.tyro.oss.randomdata;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
 import static com.tyro.oss.randomdata.RandomZonedDateTime.randomZonedDateTime;
 import static com.tyro.oss.randomdata.RandomZonedDateTime.randomZonedDateTimeBetween;
 import static java.time.ZoneId.systemDefault;
@@ -33,6 +36,18 @@ class RandomZonedDateTimeTest {
     void shouldReturnRandomZonedDateTimeBetween19700101To20301231() {
         assertThat(randomZonedDateTime())
                 .isBetween(of(1970, 1, 1, 0, 0, 0, 0, systemDefault()), of(2030, 12, 31, 23, 59, 0, 0, systemDefault()));
+    }
+
+    @Test
+    void shouldReturnRandomZonedDateTimeOfSpecificStringZoneId() {
+        ZoneId newYorkZoneId = ZoneId.of("America/New_York");
+
+        ZonedDateTime randomNewYorkZonedDateTime = RandomZonedDateTime.randomZonedDateTime("America/New_York");
+
+        assertThat(randomNewYorkZonedDateTime)
+                .isBetween(of(1970, 1, 1, 0, 0, 0, 0, newYorkZoneId), of(2030, 12, 31, 23, 59, 0, 0, newYorkZoneId));
+        assertThat(randomNewYorkZonedDateTime.getOffset().toString())
+                .isIn("-04:00", "-05:00");
     }
 
     @Test
