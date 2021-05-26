@@ -6,7 +6,7 @@
 
     <groupId>com.tyro.oss</groupId>
     <artifactId>random-data</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A simple library that populates random Java objects and primitives.</description>
