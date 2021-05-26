@@ -22,7 +22,7 @@ random-data is available on Maven Central.
 <dependency>
     <groupId>com.tyro.oss</groupId>
     <artifactId>random-data</artifactId>
-    <version>0.0.2</version>
+    <version>1.0.0</version>
     <scope>test</scope>
 </dependency>
 ```
